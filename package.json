@@ -1,0 +1,39 @@
+{
+  "name": "casha",
+  "version": "1.0.0",
+  "description": "...",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "rm -rf www/* && webpack -p",
+    "devserver": "webpack-dev-server --port 9100 --progress --colors"
+  },
+  "dependencies": {
+    "angular": "^1.4.14",
+    "angular-animate": "^1.4.14",
+    "angular-aria": "^1.4.14",
+    "angular-material": "^1.1.4",
+    "angular-route": "^1.6.4",
+    "angular-ui-router": "^0.2.18",
+    "font-awesome": "^4.3.0",
+    "webpack": "^1.8.11",
+    "webpack-dev-server": "^1.16.5"
+  },
+  "homepage": "https://github.com/shprink/angular1.4-ES6-material-webpack-boilerplate",
+  "devDependencies": {
+    "autoprefixer-loader": "^2.1.0",
+    "babel-core": "^5.8.38",
+    "babel-loader": "^5.4.2",
+    "css-loader": "^0.12.1",
+    "font-awesome": "^4.7.0",
+    "html-loader": "^0.3.0",
+    "html-webpack-plugin": "^1.7.0",
+    "ng-annotate-loader": "~0.0.4",
+    "node-sass": "^3.2.0",
+    "path": "^0.11.14",
+    "sass-loader": "^1.0.4",
+    "style-loader": "^0.12.4",
+    "webpack": "^1.8.11",
+    "webpack-dev-server": "^1.16.5"
+  }
+}
