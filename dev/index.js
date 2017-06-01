@@ -7,6 +7,7 @@ import angularUIRouter from 'angular-ui-router';
 import home from './controllers/home';
 import side from './controllers/side';
 import profile from './controllers/profile';
+
 import './scss/bootstrap.scss'
 
 export const cashaModule = angular.module('casha', [
@@ -55,12 +56,20 @@ cashaModule.config(($stateProvider) => {
 });
 
 
-cashaModule.controller('MainController', function($mdSidenav) {
+cashaModule.controller('MainController', function($mdSidenav, $scope, $state) {
+
   let vm = this;
   vm.toggleSidenav = () => {
     $mdSidenav('left').toggle();
   };
+
   vm.closeSidenav = () => {
     $mdSidenav('left').close();
   };
+
+  $scope.cc = () => {
+    $state.go('public.home');
+  }
+
+
 });

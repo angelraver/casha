@@ -1,5 +1,63 @@
 <h1>Profile</h1>
 
+<div layout="column" ng-cloak>
+
+  <md-content layout-padding>
+    <form name="projectForm">
+
+      <md-input-container flex="50">
+        <label>Tipo</label>
+        <md-select name="type" ng-model="mov.idtype" required>
+          <md-option value="1">Entrada</md-option>
+          <md-option value="2">Salida</md-option>
+        </md-select>
+      </md-input-container>
+
+      <md-input-container>
+        <label>Enter date</label>
+        <md-datepicker ng-model="mov.fecha"></md-datepicker>
+      </md-input-container>
+
+      <md-input-container class="md-block">
+        <label>Monto $</label>
+        <input md-maxlength="10" required md-no-asterisk name="monto" ng-model="mov.mount">
+        <div ng-messages="projectForm.description.$error">
+          <div ng-message="required">This is required.</div>
+        </div>
+      </md-input-container>
+
+      <md-input-container flex="50">
+        <label>Item</label>
+        <md-select name="type" ng-model="mov.iditem" required>
+          <md-option value="1">Entrada</md-option>
+          <md-option value="2">Salida</md-option>
+        </md-select>
+      </md-input-container>
+
+      <md-input-container class="md-block">
+        <label>Detalle</label>
+        <input md-maxlength="30" required md-no-asterisk name="detalle" ng-model="mov.detalle">
+      </md-input-container>
+
+      <div>
+        <md-button type="submit" ng-click="save()">Listo</md-button>
+      </div>
+
+    </form>
+  </md-content>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
 <div id="container" style="width:100%; height:400px;"></div>
 
 
