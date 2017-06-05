@@ -7,27 +7,33 @@ class ProfileController {
     $scope.mov = {};
 
     $scope.save = () => {
-      var fecha = moment($scope.mov.fecha);
-      console.log(fecha.format('YYYY'));
-      console.log(fecha.format('M'));
-      console.log(fecha.format('D'));
+
+      var fecha;
+      if ($scope.mov.fecha) {
+        fecha = moment($scope.mov.fecha);
+      } else {
+        var d = new Date();
+        fecha = moment(d);
+      }
+
       $scope.mov.iduser = 1;
-      $scope.mov.day = 1;
-      $scope.mov.month = 2;
-      $scope.mov.year = 2017;
-      //console.log($scope.mov);
+      $scope.mov.day = fecha.format('D');
+      $scope.mov.month = fecha.format('M');
+      $scope.mov.year = fecha.format('YYYY');
+
+      if (!$scope.mov.idtype || !$scope.mov.mount || !$scope.mov.iditem) {
+        return false;
+      }
 
       var target = "http://ravergames.890m.com/casha/daily/";
       var defered = $q.defer();
       var promise = defered.promise;
-      /*
-            $http.post(target + 'add.php', $scope.mov)
-              .success(function() {
-                console.log('exito');
-              }).error(function(e) {
-                console.log(e);
-              });
-      */
+      $http.post(target + 'add.php', $scope.mov)
+        .success(function() {
+          console.log('exito');
+        }).error(function(e) {
+          console.log(e);
+        });
     }
 
     /*

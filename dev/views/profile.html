@@ -3,14 +3,17 @@
 <div layout="column" ng-cloak>
 
   <md-content layout-padding>
-    <form name="projectForm">
+    <form name="movimientoForm">
 
       <md-input-container flex="50">
         <label>Tipo</label>
-        <md-select name="type" ng-model="mov.idtype" required>
+        <md-select name="idtype" ng-model="mov.idtype" required>
           <md-option value="1">Entrada</md-option>
           <md-option value="2">Salida</md-option>
         </md-select>
+        <div ng-messages="movimientoForm.idtype.$error">
+          <div ng-message="required">Indica un tipo</div>
+        </div>
       </md-input-container>
 
       <md-input-container>
@@ -20,18 +23,21 @@
 
       <md-input-container class="md-block">
         <label>Monto $</label>
-        <input md-maxlength="10" required md-no-asterisk name="monto" ng-model="mov.mount">
-        <div ng-messages="projectForm.description.$error">
-          <div ng-message="required">This is required.</div>
+        <input md-maxlength="10" required md-no-asterisk name="mount" ng-model="mov.mount">
+        <div ng-messages="movimientoForm.mount.$error">
+          <div ng-message="required">Ingresa un monto</div>
         </div>
       </md-input-container>
 
       <md-input-container flex="50">
-        <label>Item</label>
-        <md-select name="type" ng-model="mov.iditem" required>
+        <label>Concepto </label>
+        <md-select name="iditem" ng-model="mov.iditem" required>
           <md-option value="1">Entrada</md-option>
           <md-option value="2">Salida</md-option>
         </md-select>
+        <div ng-messages="movimientoForm.iditem.$error">
+          <div ng-message="required">Ingresa un concepto</div>
+        </div>
       </md-input-container>
 
       <md-input-container class="md-block">
