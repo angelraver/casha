@@ -75,3 +75,27 @@
 
 //I don't know why, but if this is not declared, you'll see little dots on top of the speed dial. The code its the same from the material.angular one, & there is no bug on their code.....strange
 .md-scale .md-fab-action-item { opacity: 0; }
+
+
+.monto-actual{
+  text-align: right;
+  padding: 0 1em 0 0;
+  margin: 0;
+  font-size: 3em;
+}
+
+.monto-actual span{
+  font-size: 0.5em;
+}
+
+.rojo {
+  color: #ff0000;
+}
+
+.verde {
+  color: #008000;
+}
+
+.naranja{
+  color: #ffa500;
+}

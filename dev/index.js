@@ -56,7 +56,36 @@ cashaModule.config(($stateProvider) => {
 });
 
 
-cashaModule.controller('MainController', function($mdSidenav, $scope, $state) {
+cashaModule.controller('MainController', function($mdSidenav, $scope, $state, $q, $http) {
+
+  $scope.montoActual = 0;
+  $scope.colorMonto = 'rojo';
+
+  function getActual(parameters) {
+    var target = "http://ravergames.890m.com/casha/daily/";
+    var defered = $q.defer();
+    var promise = defered.promise;
+    $http.post(target + 'getactual.php', parameters)
+      .success(function(data) {
+        defered.resolve(data);
+      }).error(function(e) {
+        defered.reject(err);
+      });
+    return promise;
+  }
+
+  let actualData = {
+    iduser: 1,
+    month: 7,
+    year: 2017
+  };
+
+  getActual(actualData).then(function(data) {
+      let monto = data[0].monto;
+      $scope.montoActual = monto;
+      $scope.colorMonto = monto < 0 ? 'rojo' : monto < 1000 ? 'naranja' : 'verde';
+    })
+    .catch(function(err) {});
 
   let vm = this;
   vm.toggleSidenav = () => {
